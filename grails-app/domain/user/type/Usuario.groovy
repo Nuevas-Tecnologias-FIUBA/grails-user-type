@@ -22,6 +22,12 @@ class Usuario {
 		estado type: EstadoUsuarioUserType
 	}
 
+	Usuario(String nombreDeUsuario, String apellido, String nombre) {
+		this.nombreDeUsuario = nombreDeUsuario
+		this.apellido = apellido
+		this.nombre = nombre
+	}
+
 	boolean equals(Object o) {
 		if (o == null) false
 		else if (o.is(this)) true
