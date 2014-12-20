@@ -23,10 +23,18 @@ abstract class EstadoUsuario {
 class HabilitadoEstadoUsuario extends EstadoUsuario {
 	void chequearPuedeLoguearse(Usuario usuario) {
 	}
+
+	String toString() {
+		'Estado Habilitado'
+	}
 }
 
 class InhabilitadoEstadoUsuario extends EstadoUsuario {
 	void chequearPuedeLoguearse(Usuario usuario) {
 		throw new IllegalStateException("el usuario=${usuario} no puede loguearse xq está inhabilitado")
+	}
+
+	String toString() {
+		'Estado Inhabilitado'
 	}
 }
