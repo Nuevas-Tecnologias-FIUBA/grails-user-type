@@ -9,10 +9,17 @@ class Usuario {
 
 	String nombreDeUsuario
 
+	EstadoUsuario estado = new HabilitadoEstadoUsuario()
+
 	static constraints = {
 		nombre blank: false, nullable: false
 		apellido  blank: false, nullable: false
 		nombreDeUsuario blank: false, nullable: false, unique: true
+		estado nullable: false
+	}
+
+	static mapping = {
+		estado type: EstadoUsuarioUserType
 	}
 
 	boolean equals(Object o) {
