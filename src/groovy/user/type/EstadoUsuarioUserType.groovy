@@ -19,7 +19,7 @@ import org.hibernate.type.*
 class EstadoUsuarioUserType implements UserType {
 
 	Object nullSafeGet(ResultSet rs, String[] names, SessionImplementor session, Object owner) {
-		String estadoUsuario = StringType.INSTANCE.get(rs, names[0])
+		String estadoUsuario = StringType.INSTANCE.get(rs, names[0], session)
 
 		if (estadoUsuario) {
 			switch (estadoUsuario) {
@@ -34,9 +34,9 @@ class EstadoUsuarioUserType implements UserType {
 
 	void nullSafeSet(PreparedStatement st, Object value, int index, SessionImplementor session) {
 		if (value != null) {
-			StringType.INSTANCE.set(st, convertirCodigo(value), index)
+			StringType.INSTANCE.set(st, convertirCodigo(value), index, session)
 		} else {
-			StringType.INSTANCE.set(st, null, index)
+			StringType.INSTANCE.set(st, null, index, session)
 		}
 	}
 
